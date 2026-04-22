@@ -58,7 +58,7 @@ export function JournalPage() {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-2xl font-semibold">Журнал событий</h1>
-      <div className="flex gap-4">
+      <div className="flex flex-col gap-4 lg:flex-row">
         <JournalFilters
           cameras={(camsData?.cameras ?? []).map((c) => ({ id: c.id, name: c.name }))}
           cameraId={cameraId} onCameraIdChange={setCameraId}
