@@ -42,7 +42,7 @@ export function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-muted p-4">
       <Card className="w-full max-w-sm p-6">
         <div className="mb-6 flex flex-col items-center gap-3">
-          <img src="/rusklimat.png" alt="Русклимат" className="h-10" />
+          <img src="/rusklimat.jpg" alt="Русклимат" className="h-10" />
           <h1 className="text-xl font-semibold">VisionSystem</h1>
           <p className="text-sm text-muted-foreground">Вход для оператора</p>
         </div>

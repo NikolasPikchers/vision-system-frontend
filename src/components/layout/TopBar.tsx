@@ -33,7 +33,7 @@ export function TopBar() {
   return (
     <header className="sticky top-0 z-30 border-b border-border bg-card">
       <div className="mx-auto flex h-14 max-w-content items-center gap-6 px-6">
-        <img src="/rusklimat.png" alt="Русклимат" className="h-8" />
+        <img src="/rusklimat.jpg" alt="Русклимат" className="h-8" />
         <nav className="flex items-center gap-1">
           {tabs.map(({ to, label, icon: Icon }) => (
             <NavLink
