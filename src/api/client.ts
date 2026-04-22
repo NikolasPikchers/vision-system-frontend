@@ -42,7 +42,11 @@ export async function apiRequest<T>(path: string, opts: RequestOpts = {}): Promi
   if (!res.ok) {
     const body = data as { message?: string; error?: string };
     const msg = body.message ?? body.error ?? res.statusText;
-    throw new ApiError(res.status, msg, data);
+    const err = new ApiError(res.status, msg, data);
+    if (res.status === 401 && typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('vs:session-expired'));
+    }
+    throw err;
   }
   return data as T;
 }

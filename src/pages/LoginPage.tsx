@@ -1,5 +1,5 @@
-import { useState, type FormEvent } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useEffect, useState, type FormEvent } from 'react';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
 import { toast } from 'sonner';
 import { login } from '@/api/auth';
 import { useAuth } from '@/stores/auth';
@@ -14,7 +14,14 @@ export function LoginPage() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const setSession = useAuth((s) => s.setSession);
+
+  useEffect(() => {
+    if (searchParams.get('reason') === 'expired') {
+      toast.error('Сессия истекла. Войдите заново.');
+    }
+  }, [searchParams]);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
